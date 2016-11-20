@@ -1,5 +1,6 @@
 package model;
 
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,7 +18,12 @@ import dbutil.ConnectionManager;
 
 @ManagedBean
 @RequestScoped
-public class BookManagedBean {
+public class BookManagedBean implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int id;
 	private String title;
 	private String author;
