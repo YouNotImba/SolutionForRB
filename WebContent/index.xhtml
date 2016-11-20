@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<center>
+		<h:form>
+			<p:dataTable var="list1" value="#{bookManagedBean.getAllBooks()}"
+				style="width:550px;">
+				<p:column headerText="Id">
+					<h:outputText value="#{list1.id}" />
+				</p:column>
+
+				<p:column headerText="Title">
+					<h:outputText value="#{list1.title}" />
+				</p:column>
+
+				<p:column headerText="Author">
+					<h:outputText value="#{list1.author}" />
+				</p:column>
+
+				<p:column headerText="Edit">
+
+					<h:commandLink action="edit" value="edit"
+						actionListener="#{bookManagedBean.Edit()}">
+						<f:param name="id" value="#{list1.id}"></f:param>
+					</h:commandLink>
+				</p:column>
+
+				<p:column headerText="Delete">
+					<h:commandLink action="index" value="delete"
+						actionListener="#{bookManagedBean.delete()}"
+						onclick="return confirm('Are you shure ?')">
+						<f:param name="id" value="#{list1.id}"></f:param>
+					</h:commandLink>
+				</p:column>
+
+			</p:dataTable>
+			<p:commandButton value="Add" action="add">
+			</p:commandButton>
+		</h:form>
+	</center>
+</body>
+</html>

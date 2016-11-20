@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head></h:head>
+<body>
+	<center>
+		<h:form>
+			<p:panelGrid columns="1" style="width:220px;">
+				<p:outputLabel value="Title"></p:outputLabel>
+				<p:inputText value="#{bookManagedBean.title}" required="true"
+					id="etitle" />
+				<p:watermark for="etitle" value="title requared"></p:watermark>
+
+				<p:outputLabel value="Author"></p:outputLabel>
+				<p:inputText value="#{bookManagedBean.author}" required="true"
+					id="eauthor" />
+				<p:watermark for="eauthor" value="author requared"></p:watermark>
+
+			</p:panelGrid>
+			<p:commandButton value="Add" action="index"
+				actionListener="#{bookManagedBean.add()}" />
+		</h:form>
+	</center>
+</body>
+</html>
